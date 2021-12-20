@@ -1,10 +1,10 @@
 package com.example.localelection.Controllers;
 
+import com.example.localelection.DTOs.PartyDTO;
 import com.example.localelection.Services.PartyService;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -21,5 +21,10 @@ public class PartyController {
     @GetMapping("/party/{id}")
     public Map<String, String> getParty(@PathVariable Integer id) throws Exception{
         return partyService.findParty(id);
+    }
+
+    @PostMapping("newParty")
+    public PartyDTO addParty(@RequestBody ObjectNode body) throws Exception {
+        return partyService.addParty(body.get("party_id").asText(), body.get("party_name").asText());
     }
 }

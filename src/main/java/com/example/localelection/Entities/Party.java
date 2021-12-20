@@ -33,8 +33,7 @@ public class Party {
     )
     private List<Candidate> candidate = new ArrayList<>();
 
-    public Party(int id,String partyId, String partyName) {
-        this.id = id;
+    public Party(String partyId, String partyName) {
         this.partyId = partyId;
         this.partyName = partyName;
     }
