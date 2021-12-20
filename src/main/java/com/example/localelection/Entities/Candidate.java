@@ -1,6 +1,5 @@
 package com.example.localelection.Entities;
 
-import com.example.localelection.DTOs.PartyDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

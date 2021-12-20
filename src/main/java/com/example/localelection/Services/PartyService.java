@@ -1,7 +1,6 @@
 package com.example.localelection.Services;
 
 import com.example.localelection.DTOs.PartyDTO;
-import com.example.localelection.Entities.Candidate;
 import com.example.localelection.Entities.Party;
 import com.example.localelection.Repositories.PartyRepository;
 

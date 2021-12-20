@@ -2,9 +2,7 @@ package com.example.localelection.Controllers;
 
 import com.example.localelection.DTOs.CandidateDTO;
 import com.example.localelection.Entities.Candidate;
-import com.example.localelection.Repositories.PartyRepository;
 import com.example.localelection.Services.CandidateService;
-import com.example.localelection.Services.PartyService;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +13,6 @@ import java.util.List;
 public class CandidateController {
 
     CandidateService candidateService;
-
 
     public CandidateController(CandidateService candidateService) {
         this.candidateService = candidateService;
