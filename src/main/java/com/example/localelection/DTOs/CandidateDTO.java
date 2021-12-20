@@ -1,6 +1,7 @@
 package com.example.localelection.DTOs;
 
 import com.example.localelection.Entities.Candidate;
+import com.example.localelection.Entities.Party;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,19 +20,12 @@ public class CandidateDTO {
     String name;
     PartyDTO party;
 
-    public CandidateDTO(Candidate candidate) {
+    public CandidateDTO(Candidate candidate){
         this.name = candidate.getName();
-        this.party = new PartyDTO(candidate.getParty()) ;
+        this.party = new PartyDTO(candidate.getPartyId());
     }
 
-    public static List<CandidateDTO> candidateDTOList(Iterable<Candidate> candidates){
-        List<CandidateDTO> candidate1 = StreamSupport.stream(candidates.spliterator(), false)
-                .map(candidate -> new CandidateDTO(candidate))
-                .collect(Collectors.toList());
-        return candidate1;
-    }
 
-    public PartyDTO getParty(){
-        return party;
-    }
+
+
 }

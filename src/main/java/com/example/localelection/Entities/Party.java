@@ -26,20 +26,9 @@ public class Party {
     @Column(name = "party_name", nullable = false, length = 240)
     private String partyName;
 
-    @OneToMany(
-            mappedBy = "party",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<Candidate> candidate = new ArrayList<>();
-
     public Party(String partyId, String partyName) {
         this.partyId = partyId;
         this.partyName = partyName;
-    }
-
-    public void setCandidate(List<Candidate> candidate) {
-        this.candidate = candidate;
     }
 
     public int getId() {
@@ -64,6 +53,15 @@ public class Party {
 
     public void setPartyName(String partyName) {
         this.partyName = partyName;
+    }
+
+    @Override
+    public String toString() {
+        return "Party{" +
+                "id=" + id +
+                ", partyId='" + partyId + '\'' +
+                ", partyName='" + partyName + '\'' +
+                '}';
     }
 }
 

@@ -17,8 +17,10 @@ public class PartyDTO {
     String partyName;
 
 
-    public PartyDTO(Party party) {
-        this.partyId = party.getPartyId();
-        this.partyName = party.getPartyName();
+    public PartyDTO(Party p) {
+        this.partyId = p.getPartyId();
+        this.partyName = p.getPartyName();
     }
+
+
 }

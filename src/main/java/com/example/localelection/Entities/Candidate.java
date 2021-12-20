@@ -1,5 +1,6 @@
 package com.example.localelection.Entities;
 
+import com.example.localelection.DTOs.PartyDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,12 +21,12 @@ public class Candidate {
     @Column(name = "name", nullable = false, length = 240)
     private String name;
     @ManyToOne
-    @JoinColumn(name = "party_id")
-    private Party party;
+    @JoinColumn(name = "party_id", nullable = false)
+    private Party partyId;
 
-    public Candidate(String name, Party party) {
+    public Candidate(String name, Party partyId) {
         this.name = name;
-        this.party = party;
+        this.partyId = partyId;
     }
 
     public int getId() {
@@ -44,11 +45,11 @@ public class Candidate {
         this.name = name;
     }
 
-    public Party getParty() {
-        return party;
+    public Party getPartyId() {
+        return partyId;
     }
 
-    public void setParty(Party party) {
-        this.party = party;
+    public void setPartyId(Party partyId) {
+        this.partyId = partyId;
     }
 }

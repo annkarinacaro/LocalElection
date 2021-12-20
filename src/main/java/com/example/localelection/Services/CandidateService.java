@@ -10,20 +10,35 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class CandidateService {
-
-    private CandidateRepository candidateRepository;
-    private PartyRepository partyRepository;
+    CandidateRepository candidateRepository;
+    PartyRepository partyRepository;
 
     @Autowired
-    public CandidateService(CandidateRepository candidateRepository, PartyRepository partyRepository){
+    public CandidateService(CandidateRepository candidateRepository, PartyRepository partyRepository) {
         this.candidateRepository = candidateRepository;
         this.partyRepository = partyRepository;
     }
 
-    public List<CandidateDTO> getCandidates() throws Exception{
-        Iterable<Candidate> candidates = candidateRepository.findAll();
-        return CandidateDTO.candidateDTOList(candidates);
+    public List<Candidate> showAllCandidates(){
+        return  candidateRepository.findAll();
     }
-}
+
+
+   public void deleteCandidate(int id){
+        candidateRepository.deleteById(id);
+   }
+
+    public CandidateDTO addCandidate(String name, Integer id) throws Exception{
+        Party pId = partyRepository.findPartyById(id);
+        Candidate candidate = candidateRepository.save(new Candidate(name, pId));
+        CandidateDTO candidateDTO = new CandidateDTO(candidate);
+        return null;
+    }
+
+    }
+
+
+
